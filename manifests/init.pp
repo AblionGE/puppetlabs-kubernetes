@@ -515,7 +515,6 @@ class kubernetes (
   Optional[String] $cloud_config                     = undef,
   Optional[Hash] $apiserver_extra_volumes            = {},
   Optional[Hash] $controllermanager_extra_volumes    = {},
-  Optional[Array] $kubeadm_feature_gates             = undef,
   Optional[Hash] $kubeadm_extra_config               = undef,
   Optional[Hash] $kubelet_extra_config               = undef,
   Optional[Array] $kubelet_extra_arguments           = [],
