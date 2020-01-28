@@ -8,7 +8,6 @@ define kubernetes::kubeadm_join (
   String $discovery_token                  = $kubernetes::token,
   String $tls_bootstrap_token              = $kubernetes::token,
   String $token                            = $kubernetes::token,
-  Optional[String] $feature_gates          = undef,
   Optional[String] $cri_socket             = undef,
   Optional[String] $discovery_file         = undef,
   Optional[Array] $env                     = $kubernetes::environment,
@@ -27,7 +26,6 @@ define kubernetes::kubeadm_join (
         discovery_token          => $discovery_token,
         ca_cert_hash             => $ca_cert_hash,
         skip_ca_verification     => $skip_ca_verification,
-        feature_gates            => $feature_gates,
         ignore_preflight_errors  => $ignore_preflight_errors,
         node_name                => $node_name,
         tls_bootstrap_token      => $tls_bootstrap_token,
@@ -38,7 +36,6 @@ define kubernetes::kubeadm_join (
       $kubeadm_join_flags = kubeadm_join_flags({
         config                   => $config,
         discovery_file           => $discovery_file,
-        feature_gates            => $feature_gates,
         ignore_preflight_errors  => $ignore_preflight_errors,
       })
     }
